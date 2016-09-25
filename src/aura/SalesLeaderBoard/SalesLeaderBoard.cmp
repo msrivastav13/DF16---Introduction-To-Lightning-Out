@@ -1,0 +1,32 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="SalesLeaderBoardController">
+
+    <ltng:require styles="/resource/SEDreamin__SLDS0121/assets/styles/salesforce-lightning-design-system-ltng.css" />
+
+    <!--ATTRIBUTES DECLARATION -->
+    <aura:attribute name="lstsalesUser" type="SalesLeader[]"/>
+    
+
+    <aura:handler name="init" value="{!this}" action="{!c.getData}" />
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+
+    <div class="slds">
+        <div class="slds-page-header">
+             <h3>
+                 <b>
+                     <center>SALES LEADERBOARD</center>
+                 </b>
+             </h3>
+        </div>
+        <center>
+             <div class="slds-spinner--large" aura:id="spinner">
+            <img src="/resource/SEDreamin__SLDS0121/assets/images/spinners/slds_spinner_brand.gif" alt="Loading..." />
+         </div>
+           </center>
+          <br/>
+          <aura:iteration items="{!v.lstsalesUser}" var="usr">
+              <c:SalesLeaderBoardCard salesUser="{!usr}"/>
+          </aura:iteration>
+    </div>
+
+</aura:component>

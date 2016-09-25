@@ -1,0 +1,4 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes">
+  <c:SalesLeaderBoard />
+  <c:SalesLeaderDetail />
+</aura:component>
